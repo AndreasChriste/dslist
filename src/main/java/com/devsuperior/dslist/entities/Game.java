@@ -22,9 +22,15 @@ public class Game {
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String platform;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	//cria uma coluna não mais como var char, pois var char aceita somente 255 caracteres), e sim como text que aceita muito mais caracteres
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	
@@ -32,13 +38,14 @@ public class Game {
 	}
 
 
-	public Game(Long id, String title, Integer year, String genre, String platform, String imgUrl,
+	public Game(Long id, String title, Integer year, String genre, String platforms,Double score, String imgUrl,
 			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
+		this.platforms = platforms;
+		this.score = score;
 		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
@@ -85,13 +92,23 @@ public class Game {
 	}
 
 
-	public String getPlatform() {
-		return platform;
+	public String getPlatforms() {
+		return platforms;
 	}
 
 
-	public void setPlatform(String platform) {
-		this.platform = platform;
+	public void setPlatforms(String platforms) {
+		this.platforms = platforms;
+	}
+
+
+	public Double getScore() {
+		return score;
+	}
+
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 
